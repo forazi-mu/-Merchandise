@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounts - Merchandise Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header will be dynamically loaded -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="container-fluid py-4">
+        <div class="row">
+            <!-- Sidebar will be dynamically loaded -->
+            <div id="sidebar-placeholder" class="col-md-3 col-lg-2"></div>
+
+            <!-- Content Area -->
+            <div class="col-md-9 col-lg-10">
+                <!-- Payment Entry -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Payment Entry</h5>
+                        <form id="paymentForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="paymentId" class="form-label">Payment ID</label>
+                                    <input type="text" class="form-control" id="paymentId" readonly>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="paymentDate" class="form-label">Payment Date</label>
+                                    <input type="date" class="form-control" id="paymentDate" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="paymentType" class="form-label">Payment Type</label>
+                                    <select class="form-select" id="paymentType" required>
+                                        <option value="">Select Payment Type</option>
+                                        <option value="supplier">Supplier Payment</option>
+                                        <option value="customs">Customs Payment</option>
+                                        <option value="shipping">Shipping Payment</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="referenceNumber" class="form-label">Reference Number</label>
+                                    <input type="text" class="form-control" id="referenceNumber" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="amount" class="form-label">Amount</label>
+                                    <div class="input-group">
+                                        <select class="form-select" id="currency" style="max-width: 100px;">
+                                            <option value="BDT">BDT</option>
+                                            <option value="USD">USD</option>
+                                            <option value="RMB">RMB</option>
+                                        </select>
+                                        <input type="number" class="form-control" id="amount" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="paymentMethod" class="form-label">Payment Method</label>
+                                    <select class="form-select" id="paymentMethod" required>
+                                        <option value="">Select Payment Method</option>
+                                        <option value="bank_transfer">Bank Transfer</option>
+                                        <option value="cash">Cash</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="paymentNotes" class="form-label">Payment Notes</label>
+                                <textarea class="form-control" id="paymentNotes" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit Payment</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Payment List -->
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Payment List</h5>
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="paymentSearch" placeholder="Search by Payment ID/Reference">
+                                    <button class="btn btn-outline-secondary" type="button" id="searchPayments">Search</button>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-select" id="paymentTypeFilter">
+                                    <option value="">All Payment Types</option>
+                                    <option value="supplier">Supplier Payment</option>
+                                    <option value="customs">Customs Payment</option>
+                                    <option value="shipping">Shipping Payment</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <input type="date" class="form-control" id="dateFilter">
+                                    <button class="btn btn-outline-secondary" type="button" id="filterByDate">Filter</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table" id="paymentsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Payment ID</th>
+                                        <th>Date</th>
+                                        <th>Type</th>
+                                        <th>Reference</th>
+                                        <th>Amount</th>
+                                        <th>Method</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Payment data will be dynamically loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be dynamically loaded -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Help Chat -->
+    <div class="help-chat">
+        <button class="btn btn-primary rounded-circle" id="helpButton">
+            <i class="bi bi-question-lg"></i>
+        </button>
+        <div class="help-content" id="helpContent">
+            <!-- Help content will be dynamically loaded here -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="accounts.js"></script>
+</body>
+</html> 

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import & Custom - Merchandise Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header will be dynamically loaded -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="container-fluid py-4">
+        <div class="row">
+            <!-- Sidebar will be dynamically loaded -->
+            <div id="sidebar-placeholder" class="col-md-3 col-lg-2"></div>
+
+            <!-- Content Area -->
+            <div class="col-md-9 col-lg-10">
+                <!-- Pro Forma Invoice -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Pro Forma Invoice</h5>
+                        <form id="proFormaForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="piNumber" class="form-label">PI Number</label>
+                                    <input type="text" class="form-control" id="piNumber" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="piDate" class="form-label">PI Date</label>
+                                    <input type="date" class="form-control" id="piDate" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="supplier" class="form-label">Supplier</label>
+                                    <input type="text" class="form-control" id="supplier" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="totalAmount" class="form-label">Total Amount</label>
+                                    <div class="input-group">
+                                        <select class="form-select" id="currency" style="max-width: 100px;">
+                                            <option value="USD">USD</option>
+                                            <option value="RMB">RMB</option>
+                                        </select>
+                                        <input type="number" class="form-control" id="totalAmount" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="piFile" class="form-label">Upload Pro Forma Invoice (PDF)</label>
+                                <input type="file" class="form-control" id="piFile" accept=".pdf">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit Pro Forma Invoice</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Letter of Credit -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Letter of Credit</h5>
+                        <form id="lcForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="lcNumber" class="form-label">L/C Number</label>
+                                    <input type="text" class="form-control" id="lcNumber" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="lcDate" class="form-label">L/C Date</label>
+                                    <input type="date" class="form-control" id="lcDate" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="bankName" class="form-label">Bank Name</label>
+                                    <input type="text" class="form-control" id="bankName" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="lcAmount" class="form-label">L/C Amount</label>
+                                    <div class="input-group">
+                                        <select class="form-select" id="lcCurrency" style="max-width: 100px;">
+                                            <option value="USD">USD</option>
+                                            <option value="RMB">RMB</option>
+                                        </select>
+                                        <input type="number" class="form-control" id="lcAmount" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="lcFile" class="form-label">Upload L/C Document (PDF)</label>
+                                <input type="file" class="form-control" id="lcFile" accept=".pdf">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit L/C</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Import Documents -->
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Import Documents</h5>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="docSearch" placeholder="Search by PI/L/C Number">
+                                    <button class="btn btn-outline-secondary" type="button" id="searchDocs">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table" id="documentsTable">
+                                <thead>
+                                    <tr>
+                                        <th>PI No.</th>
+                                        <th>L/C No.</th>
+                                        <th>Supplier</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Documents data will be dynamically loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be dynamically loaded -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Help Chat -->
+    <div class="help-chat">
+        <button class="btn btn-primary rounded-circle" id="helpButton">
+            <i class="bi bi-question-lg"></i>
+        </button>
+        <div class="help-content" id="helpContent">
+            <!-- Help content will be dynamically loaded here -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="import_custom.js"></script>
+</body>
+</html> 

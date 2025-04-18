@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargo Loading - Merchandise Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header will be dynamically loaded -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="container-fluid py-4">
+        <div class="row">
+            <!-- Sidebar will be dynamically loaded -->
+            <div id="sidebar-placeholder" class="col-md-3 col-lg-2"></div>
+
+            <!-- Content Area -->
+            <div class="col-md-9 col-lg-10">
+                <!-- Loading List Entry Form -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Loading List Entry</h5>
+                        <form id="loadingListForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="shipmentId" class="form-label">Shipment ID</label>
+                                    <input type="text" class="form-control" id="shipmentId" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="loadingDate" class="form-label">Loading Date</label>
+                                    <input type="date" class="form-control" id="loadingDate" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="containerNumber" class="form-label">Container Number</label>
+                                    <input type="text" class="form-control" id="containerNumber" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="billOfLading" class="form-label">Bill of Lading Number</label>
+                                    <input type="text" class="form-control" id="billOfLading" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="loadingListFile" class="form-label">Upload Loading List (Excel/PDF)</label>
+                                <input type="file" class="form-control" id="loadingListFile" accept=".xlsx,.xls,.pdf">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit Loading List</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Container Tracking -->
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Container Tracking</h5>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="trackingSearch" placeholder="Enter Container or B/L Number">
+                                    <button class="btn btn-outline-secondary" type="button" id="searchTracking">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table" id="trackingTable">
+                                <thead>
+                                    <tr>
+                                        <th>Container No.</th>
+                                        <th>B/L No.</th>
+                                        <th>Loading Date</th>
+                                        <th>Status</th>
+                                        <th>Location</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Tracking data will be dynamically loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be dynamically loaded -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Help Chat -->
+    <div class="help-chat">
+        <button class="btn btn-primary rounded-circle" id="helpButton">
+            <i class="bi bi-question-lg"></i>
+        </button>
+        <div class="help-content" id="helpContent">
+            <!-- Help content will be dynamically loaded here -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="cargo_loading.js"></script>
+</body>
+</html> 
